@@ -24,8 +24,8 @@ contract Airlines {
         modifier onlyMember{
             require(membership[msg.sender]==1);
             _;
-            
         }
+        
         // constructor function
         constructor () public payable {
             // use of msg.sender and msg.value for a payable function
@@ -66,7 +66,6 @@ contract Airlines {
                 balanceDetails[fromAirline].hashOfDetails = hashOfDetails;
         }
         
-        
         function settlePayment (address payable toAirline) onlyMember payable public {
             address fromAirline=msg.sender;
             uint amt = msg.value;
@@ -78,5 +77,4 @@ contract Airlines {
             toAirline.transfer(amt);
         }
 }
-
 Ramamurthy, B. (2020). Blockchain in action. Manning Publications.
